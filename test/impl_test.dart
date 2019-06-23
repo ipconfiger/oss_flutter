@@ -3,7 +3,7 @@ library oss_flutter.test.impl_test;
 import 'dart:io';
 import "package:test/test.dart";
 import 'package:oss_flutter/src/utils.dart';
-import 'package:oss_flutter/oss.dart';
+import 'package:oss_flutter/oss_flutter.dart';
 
 void main() {
   HttpRequest req = new HttpRequest(
