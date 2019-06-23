@@ -58,7 +58,7 @@ void main() {
             "StatusCode": 200
           };
         });
-        Auth auth = await client.getAuth();
+        await client.getAuth();
         expect(true, equals(client.checkAuthed()));
     });
     test('Client-listBucket', () async{
@@ -71,7 +71,7 @@ void main() {
             "StatusCode": 200
           };
         });
-        Auth auth = await client.getAuth();
+        await client.getAuth();
         final request = client.list_buckets();
         print(request.asCurl());
         expect(true, equals(true));
@@ -98,7 +98,7 @@ void main() {
             "StatusCode": 200
           };
         });
-      Auth auth = await client.getAuth();
+      await client.getAuth();
       HttpRequest req = client.putObject(bytes, 'messenger', '1.jpg');
       print(req.asCurl(file_path: path));
       expect(true, equals(true));      
@@ -115,7 +115,6 @@ void main() {
       });
       await client.getAuth();
       HttpRequest req = client.deleteObject('messenger', '1.jpg');
-      
       print(req.asCurl());
       expect(true, equals(true)); 
     });

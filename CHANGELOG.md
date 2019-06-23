@@ -4,3 +4,6 @@
 1. list buckets
 2. put object
 3. delete object
+
+## 0.0.2
+1. Add more mimetypes
