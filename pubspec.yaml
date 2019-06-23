@@ -1,0 +1,15 @@
+name: oss_flutter
+description: Aliyun Oss Client for flutter.
+version: 0.0.1
+author: Alexander.Li<superpowerlee@gmail.com>
+homepage: https://github.com/ipconfiger/oss_flutter
+
+environment:
+  sdk: '>=2.0.0 <3.0.0'
+
+dependencies:
+  crypto: ^2.0.6
+  intl: ^0.15.8
+
+dev_dependencies:
+  test: '>=0.12.30 <1.4.0'
