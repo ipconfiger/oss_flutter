@@ -51,13 +51,13 @@ void main() {
     });
     test('Client-Auth', () async{
       final client = Client('', '', (url) async{
-          return {
-            "AccessKeyId": "STS.NK8DkLweZY6juxjTaXSDtEhFT", 
-            "AccessKeySecret": "DmZryEAFYijzndptHoukoYXPTY9NeinBZrLrQKMGaLHt", 
-            "Expiration": "2019-06-23T00:53:26Z", 
-            "SecurityToken": "CAIS9gF1q6Ft5B2yfSjIr4iND9H4mrp77vSBd17bsGENX8tYqq3ttjz2IH9OeHhqB+kWsPkyn2FW7fwalrh+W4NIX0rNaY5t9ZlN9wqkbtJqfW9TPflW5qe+EE2/VjTZvqaLEcibIfrZfvCyESOm8gZ43br9cxi7QlWhKufnoJV7b9MRLGLaBHg8c7UwHAZ5r9IAPnb8LOukNgWQ4lDdF011oAFx+wgdgOadupDGtUOC0QCilrZM99yre8WeApMybMcvYbCcx/drc6fN6ilU5iVR+b1+5K4+omid4oDHXQABvUjbaLuKqYc3NmF+fbMzEKVUczQjVFHbfI0agAGLEH6WkWif+jfTBZ2OEGaPNw+2HPhdnqtfP7gawuDvN72xeN2KtJZKH0vAi3cTGId0rlb0drO0KvYVUGtyyvkYDLDEzJC1gDYl/ewuknqnJYJyxegCc/J3YDiFpCCbQ2kK9464A+os5Y7TGa+RUKF+6kbkuwu+hMRL+aJWJZUjGA==", 
-            "StatusCode": 200
-          };
+          return '{'
+            '"AccessKeyId": "STS.NK8DkLweZY6juxjTaXSDtEhFT",'
+            '"AccessKeySecret": "DmZryEAFYijzndptHoukoYXPTY9NeinBZrLrQKMGaLHt",'
+            '"Expiration": "2019-06-23T00:53:26Z",'
+            '"SecurityToken": "CAIS9gF1q6Ft5B2yfSjIr4iND9H4mrp77vSBd17bsGENX8tYqq3ttjz2IH9OeHhqB+kWsPkyn2FW7fwalrh+W4NIX0rNaY5t9ZlN9wqkbtJqfW9TPflW5qe+EE2/VjTZvqaLEcibIfrZfvCyESOm8gZ43br9cxi7QlWhKufnoJV7b9MRLGLaBHg8c7UwHAZ5r9IAPnb8LOukNgWQ4lDdF011oAFx+wgdgOadupDGtUOC0QCilrZM99yre8WeApMybMcvYbCcx/drc6fN6ilU5iVR+b1+5K4+omid4oDHXQABvUjbaLuKqYc3NmF+fbMzEKVUczQjVFHbfI0agAGLEH6WkWif+jfTBZ2OEGaPNw+2HPhdnqtfP7gawuDvN72xeN2KtJZKH0vAi3cTGId0rlb0drO0KvYVUGtyyvkYDLDEzJC1gDYl/ewuknqnJYJyxegCc/J3YDiFpCCbQ2kK9464A+os5Y7TGa+RUKF+6kbkuwu+hMRL+aJWJZUjGA==",'
+            '"StatusCode": 200'
+          '}';
         });
         await client.getAuth();
         expect(true, equals(client.checkAuthed()));
@@ -85,13 +85,13 @@ void main() {
       File f = new File(path);
       final bytes = await f.readAsBytes();
       final client = Client('', 'oss-cn-hongkong.aliyuncs.com', (url) async{
-          return {
-            "AccessKeyId": "STS.NJzu9RfSjTQPrKPYtkXDC663z", 
-            "AccessKeySecret": "CkW8KPu31Eo511GsHr8WwpoGDmKAPfYQoXzFmwwq8yYg", 
-            "Expiration": "2019-06-23T14:59:11Z", 
-            "SecurityToken": "CAIS9gF1q6Ft5B2yfSjIr4nPPoPmi4xL45O7cG3hvXQ+VMtv2fOYmDz2IH9OeHhqB+kWsPkyn2FW7fwalrh+W4NIX0rNaY5t9ZlN9wqkbtJhGkB7PflW5qe+EE2/VjTZvqaLEcibIfrZfvCyESOm8gZ43br9cxi7QlWhKufnoJV7b9MRLGLaBHg8c7UwHAZ5r9IAPnb8LOukNgWQ4lDdF011oAFx+wgdgOadupDGtUOC0QCilrZM99yre8WeApMybMcvYbCcx/drc6fN6ilU5iVR+b1+5K4+omid4oDHXQABvUjbaLuKqYc3NmF+fbMzEKVUczQjVFHbfI0agAGwKqAkU2WbB+Twr09nJMG5DCXqv+gzml2WjEt6n6cfE/Mrjjx7vcpidag0Yx/86hURyTSBbPTJ3ew5TWVzUp1A6YHijRBcrZkk9ZOAdytWkkn6dZ0FJqPsAVQnnDho+IbtYjNV7WmyKvyXHQfS/lqKThdKg6vdJQRowsyQcWotmQ==", 
-            "StatusCode": 200
-          };
+          return '{'
+            '"AccessKeyId": "STS.NK8DkLweZY6juxjTaXSDtEhFT",'
+            '"AccessKeySecret": "DmZryEAFYijzndptHoukoYXPTY9NeinBZrLrQKMGaLHt",'
+            '"Expiration": "2019-06-23T00:53:26Z",'
+            '"SecurityToken": "CAIS9gF1q6Ft5B2yfSjIr4iND9H4mrp77vSBd17bsGENX8tYqq3ttjz2IH9OeHhqB+kWsPkyn2FW7fwalrh+W4NIX0rNaY5t9ZlN9wqkbtJqfW9TPflW5qe+EE2/VjTZvqaLEcibIfrZfvCyESOm8gZ43br9cxi7QlWhKufnoJV7b9MRLGLaBHg8c7UwHAZ5r9IAPnb8LOukNgWQ4lDdF011oAFx+wgdgOadupDGtUOC0QCilrZM99yre8WeApMybMcvYbCcx/drc6fN6ilU5iVR+b1+5K4+omid4oDHXQABvUjbaLuKqYc3NmF+fbMzEKVUczQjVFHbfI0agAGLEH6WkWif+jfTBZ2OEGaPNw+2HPhdnqtfP7gawuDvN72xeN2KtJZKH0vAi3cTGId0rlb0drO0KvYVUGtyyvkYDLDEzJC1gDYl/ewuknqnJYJyxegCc/J3YDiFpCCbQ2kK9464A+os5Y7TGa+RUKF+6kbkuwu+hMRL+aJWJZUjGA==",'
+            '"StatusCode": 200'
+          '}';
         });
       await client.getAuth();
       HttpRequest req = client.putObject(bytes, 'messenger', '1.jpg');
@@ -100,13 +100,13 @@ void main() {
     });
     test('Client-deleteObject', () async{
       final client = Client('', 'oss-cn-hongkong.aliyuncs.com', (url) async{
-          return {
-            "AccessKeyId": "STS.NJzu9RfSjTQPrKPYtkXDC663z", 
-            "AccessKeySecret": "CkW8KPu31Eo511GsHr8WwpoGDmKAPfYQoXzFmwwq8yYg", 
-            "Expiration": "2019-06-23T14:59:11Z", 
-            "SecurityToken": "CAIS9gF1q6Ft5B2yfSjIr4nPPoPmi4xL45O7cG3hvXQ+VMtv2fOYmDz2IH9OeHhqB+kWsPkyn2FW7fwalrh+W4NIX0rNaY5t9ZlN9wqkbtJhGkB7PflW5qe+EE2/VjTZvqaLEcibIfrZfvCyESOm8gZ43br9cxi7QlWhKufnoJV7b9MRLGLaBHg8c7UwHAZ5r9IAPnb8LOukNgWQ4lDdF011oAFx+wgdgOadupDGtUOC0QCilrZM99yre8WeApMybMcvYbCcx/drc6fN6ilU5iVR+b1+5K4+omid4oDHXQABvUjbaLuKqYc3NmF+fbMzEKVUczQjVFHbfI0agAGwKqAkU2WbB+Twr09nJMG5DCXqv+gzml2WjEt6n6cfE/Mrjjx7vcpidag0Yx/86hURyTSBbPTJ3ew5TWVzUp1A6YHijRBcrZkk9ZOAdytWkkn6dZ0FJqPsAVQnnDho+IbtYjNV7WmyKvyXHQfS/lqKThdKg6vdJQRowsyQcWotmQ==", 
-            "StatusCode": 200
-          };
+          return '{'
+            '"AccessKeyId": "STS.NK8DkLweZY6juxjTaXSDtEhFT",'
+            '"AccessKeySecret": "DmZryEAFYijzndptHoukoYXPTY9NeinBZrLrQKMGaLHt",'
+            '"Expiration": "2019-06-23T00:53:26Z",'
+            '"SecurityToken": "CAIS9gF1q6Ft5B2yfSjIr4iND9H4mrp77vSBd17bsGENX8tYqq3ttjz2IH9OeHhqB+kWsPkyn2FW7fwalrh+W4NIX0rNaY5t9ZlN9wqkbtJqfW9TPflW5qe+EE2/VjTZvqaLEcibIfrZfvCyESOm8gZ43br9cxi7QlWhKufnoJV7b9MRLGLaBHg8c7UwHAZ5r9IAPnb8LOukNgWQ4lDdF011oAFx+wgdgOadupDGtUOC0QCilrZM99yre8WeApMybMcvYbCcx/drc6fN6ilU5iVR+b1+5K4+omid4oDHXQABvUjbaLuKqYc3NmF+fbMzEKVUczQjVFHbfI0agAGLEH6WkWif+jfTBZ2OEGaPNw+2HPhdnqtfP7gawuDvN72xeN2KtJZKH0vAi3cTGId0rlb0drO0KvYVUGtyyvkYDLDEzJC1gDYl/ewuknqnJYJyxegCc/J3YDiFpCCbQ2kK9464A+os5Y7TGa+RUKF+6kbkuwu+hMRL+aJWJZUjGA==",'
+            '"StatusCode": 200'
+          '}';
       });
       await client.getAuth();
       HttpRequest req = client.deleteObject('messenger', '1.jpg');

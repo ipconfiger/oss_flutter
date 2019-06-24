@@ -19,3 +19,6 @@
 
 ## 0.0.6
 1. Fix bugs of null or empty determine 2
+
+## 0.0.7
+1. Use String instead of Map to solve the cast problem

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'utils.dart';
 
 class OSSResponse{
@@ -66,7 +67,7 @@ class HttpRequest{
   }
 }
 
-typedef Future<Map<String, dynamic>> GetToken(String);
+typedef Future<String> GetToken(String);
 
 /// OSS Client
 class Client{
@@ -105,8 +106,9 @@ class Client{
       return this;
     }else{
       final resp = await this.tokenGetter(this.stsRequestUrl);
-      this._auth = Auth(resp['AccessKeyId'], resp['AccessKeySecret'], resp['SecurityToken']);
-      this._expire = resp['Expiration'];
+      final respMap = jsonDecode(resp);
+      this._auth = Auth(respMap['AccessKeyId'], respMap['AccessKeySecret'], respMap['SecurityToken']);
+      this._expire = respMap['Expiration'];
       return this;
     }
   }
