@@ -16,3 +16,6 @@
 
 ## 0.0.5
 1. Fix bugs of null or empty determine
+
+## 0.0.6
+1. Fix bugs of null or empty determine 2

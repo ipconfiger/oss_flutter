@@ -31,7 +31,7 @@ class HttpRequest{
   String get Url{
     var url_params = [];
     var url_base = this.url;
-    if ([null, {}].contains(this.param)){
+    if ((this.param ?? {}).isNotEmpty){
       this.param.forEach((k, v){
         url_params.add("${k}=${v}");
       });
@@ -61,17 +61,7 @@ class HttpRequest{
     if (this._fileData != null){
         cmd_base = "${cmd_base} \"${file_path}\"";
     }
-    cmd_base = '${cmd_base} ${this.url}';
-    var url_params = [];
-    if (this.param!=null || this.param.length > 0){
-      this.param.forEach((k, v){
-        url_params.add("${k}=${v}");
-      });
-      final url_string = url_params.join("&");
-      if (url_string.length>0){
-        cmd_base = "${cmd_base}?${url_string}";
-      }
-    }
+    cmd_base = '${cmd_base} ${this.Url}';
     return cmd_base;  
   }
 }
@@ -222,7 +212,7 @@ class Auth {
   }
 
   String get_resource_string(HttpRequest req, String bucket, String key){
-    if(['', null].contains(bucket)){
+    if((bucket ?? '').isEmpty){
       return "/";
     }else{
       final substring = this.get_subresource_string(req.param);
@@ -252,7 +242,7 @@ class Auth {
   }
 
   String get_subresource_string(Map params){
-    if ([null, {}].contains(params)){
+    if ((params ?? {}).isNotEmpty){
       return '';
     }
     var subresource_params = [];
