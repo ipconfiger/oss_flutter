@@ -10,3 +10,6 @@
 
 ## 0.0.3
 1. Add a getter returns the url with parameters
+
+## 0.0.4
+1. Fix bugs of json decode

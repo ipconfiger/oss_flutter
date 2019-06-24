@@ -76,7 +76,7 @@ class HttpRequest{
   }
 }
 
-typedef Future<Map> GetToken(String);
+typedef Future<Map<String, dynamic>> GetToken(String);
 
 /// OSS Client
 class Client{
@@ -114,7 +114,7 @@ class Client{
     if (this.checkExpire(this._expire)){
       return this;
     }else{
-      final Map resp = await this.tokenGetter(this.stsRequestUrl);
+      final resp = await this.tokenGetter(this.stsRequestUrl);
       this._auth = Auth(resp['AccessKeyId'], resp['AccessKeySecret'], resp['SecurityToken']);
       this._expire = resp['Expiration'];
       return this;
