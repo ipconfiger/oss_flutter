@@ -13,7 +13,7 @@ your have to implement 2 things
 #### 1. Install
 
     dependencies:
-        oss_flutter: ^0.0.7
+        oss_flutter: ^0.0.8
 
 #### 2. Initialization
 

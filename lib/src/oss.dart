@@ -47,9 +47,11 @@ class HttpRequest{
   /// return string of curl command, you can test it in console
   String asCurl({file_path: null}){
     var cmd_base = 'curl ';
-    this.headers.forEach((k, v){
-      cmd_base = "${cmd_base} -H \"${k}:${v}\"";
-    });
+    if((this.headers??{}).isNotEmpty){
+      this.headers.forEach((k, v){
+        cmd_base = "${cmd_base} -H \"${k}:${v}\"";
+      });
+    }
     if (this.method == 'PUT'){
       cmd_base = "${cmd_base} -T";
     }
@@ -127,7 +129,7 @@ class Client{
         'marker': marker,
         'max-keys': '${max_keys}'
       };
-      if (params != null){
+      if ((params??{}).isNotEmpty){
         if (params.containsKey('tag-key')){
           listParam['tag-key'] = params['tag-key'];
         }

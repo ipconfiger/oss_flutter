@@ -64,7 +64,7 @@ void main() {
     });
     test('Client-listBucket', () async{
       final client = Client('', 'oss-cn-hongkong.aliyuncs.com', (url) async{
-          return jsonDecode('{"AccessKeyId": "STS.NJsbinQRbvWCRRkzsY9FmWw7n","AccessKeySecret": "9T9RFLeR3F3QEW5v9SYzB6aLpTze2vUhMCTrsri3gfGf","Expiration": "2019-06-23T13:15:55Z","SecurityToken": "CAIS9gF1q6Ft5B2yfSjIr4nGKdPavI1DwZWoUHTannMMNclBuLKcjDz2IH9OeHhqB+kWsPkyn2FW7fwalrh+W4NIX0rNaY5t9ZlN9wqkbtIiZ05+PflW5qe+EE2/VjTZvqaLEcibIfrZfvCyESOm8gZ43br9cxi7QlWhKufnoJV7b9MRLGLaBHg8c7UwHAZ5r9IAPnb8LOukNgWQ4lDdF011oAFx+wgdgOadupDGtUOC0QCilrZM99yre8WeApMybMcvYbCcx/drc6fN6ilU5iVR+b1+5K4+omid4oDHXQABvUjbaLuKqYc3NmF+fbMzEKVUczQjVFHbfI0agAF0gGYMO8mcvs6u8QEhzwBXNCb4PDbigfxwno+wskaIrE5lOvPUtW7EhxijQZjphOK71+59/R4dciJFoFXVAqutyUnLlNsrkKGPB0HQBwbRX3oPmiJ8NriH4es0qfV6i9Om1e+i6Vbj7WBaUMuMru9q9NOp9q8oYON09K2QdOlRdA==","StatusCode": 200}');
+          return '{"AccessKeyId": "STS.NJsbinQRbvWCRRkzsY9FmWw7n","AccessKeySecret": "9T9RFLeR3F3QEW5v9SYzB6aLpTze2vUhMCTrsri3gfGf","Expiration": "2019-06-23T13:15:55Z","SecurityToken": "CAIS9gF1q6Ft5B2yfSjIr4nGKdPavI1DwZWoUHTannMMNclBuLKcjDz2IH9OeHhqB+kWsPkyn2FW7fwalrh+W4NIX0rNaY5t9ZlN9wqkbtIiZ05+PflW5qe+EE2/VjTZvqaLEcibIfrZfvCyESOm8gZ43br9cxi7QlWhKufnoJV7b9MRLGLaBHg8c7UwHAZ5r9IAPnb8LOukNgWQ4lDdF011oAFx+wgdgOadupDGtUOC0QCilrZM99yre8WeApMybMcvYbCcx/drc6fN6ilU5iVR+b1+5K4+omid4oDHXQABvUjbaLuKqYc3NmF+fbMzEKVUczQjVFHbfI0agAF0gGYMO8mcvs6u8QEhzwBXNCb4PDbigfxwno+wskaIrE5lOvPUtW7EhxijQZjphOK71+59/R4dciJFoFXVAqutyUnLlNsrkKGPB0HQBwbRX3oPmiJ8NriH4es0qfV6i9Om1e+i6Vbj7WBaUMuMru9q9NOp9q8oYON09K2QdOlRdA==","StatusCode": 200}';
         });
         await client.getAuth();
         final request = client.list_buckets();
@@ -112,6 +112,10 @@ void main() {
       HttpRequest req = client.deleteObject('messenger', '1.jpg');
       print(req.asCurl());
       expect(true, equals(true)); 
+    });
+    test('HttpRequest', () async{
+      final req = new HttpRequest('http://aaa.com', 'GET', null, null);
+      print(req.asCurl());
     });
 
   });

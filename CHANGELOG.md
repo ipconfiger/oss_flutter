@@ -22,3 +22,6 @@
 
 ## 0.0.7
 1. Use String instead of Map to solve the cast problem
+
+## 0.0.8
+1. Fix bugs in asUrl
