@@ -7,3 +7,6 @@
 
 ## 0.0.2
 1. Add more mimetypes
+
+## 0.0.3
+1. Add a getter returns the url with parameters
