@@ -29,6 +29,8 @@ class HttpRequest{
     this._fileData = bytes;
   }
 
+  List<int> get fileData => this._fileData;
+
   String get Url{
     var url_params = [];
     var url_base = this.url;

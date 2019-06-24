@@ -25,3 +25,6 @@
 
 ## 0.0.8
 1. Fix bugs in asUrl
+
+## 0.1.0
+1. Add fileData getter
