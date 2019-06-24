@@ -31,7 +31,7 @@ class HttpRequest{
   String get Url{
     var url_params = [];
     var url_base = this.url;
-    if (this.param!=null || this.param.length > 0){
+    if ([null, {}].contains(this.param)){
       this.param.forEach((k, v){
         url_params.add("${k}=${v}");
       });
@@ -222,7 +222,7 @@ class Auth {
   }
 
   String get_resource_string(HttpRequest req, String bucket, String key){
-    if(bucket==null||bucket==''){
+    if(['', null].contains(bucket)){
       return "/";
     }else{
       final substring = this.get_subresource_string(req.param);
@@ -252,7 +252,7 @@ class Auth {
   }
 
   String get_subresource_string(Map params){
-    if (params == null || params.length < 1){
+    if ([null, {}].contains(params)){
       return '';
     }
     var subresource_params = [];

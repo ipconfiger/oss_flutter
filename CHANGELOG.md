@@ -13,3 +13,6 @@
 
 ## 0.0.4
 1. Fix bugs of json decode
+
+## 0.0.5
+1. Fix bugs of null or empty determine
