@@ -1,6 +1,16 @@
 import 'dart:async';
 import 'utils.dart';
 
+class OSSResponse{
+  OSSResponse(){
+
+  }
+  int statusCode;
+  
+
+}
+
+/// Http Wrpper Class
 class HttpRequest{
   HttpRequest(String url, String method, Map param, Map headers){
     this.url = url;
@@ -8,8 +18,8 @@ class HttpRequest{
     this.param = param;
     this.headers = headers;
   }
-  String url;
-  String method;
+  String url = '';
+  String method = '';
   Map param;
   Map headers;
   List<int> _fileData;
@@ -18,6 +28,22 @@ class HttpRequest{
     this._fileData = bytes;
   }
 
+  String get Url{
+    var url_params = [];
+    var url_base = this.url;
+    if (this.param!=null || this.param.length > 0){
+      this.param.forEach((k, v){
+        url_params.add("${k}=${v}");
+      });
+      final url_string = url_params.join("&");
+      if (url_string.length>0){
+        url_base = "${url_base}?${url_string}";
+      }
+    }
+    return url_base;
+  }
+
+  /// return string of curl command, you can test it in console
   String asCurl({file_path: null}){
     var cmd_base = 'curl ';
     this.headers.forEach((k, v){
@@ -52,7 +78,12 @@ class HttpRequest{
 
 typedef Future<Map> GetToken(String);
 
+/// OSS Client
 class Client{
+  /// init
+  /// @param stsRequestUrl type:String Url to get sts token
+  /// @param endpointDomain type:String Domain of endpoint
+  /// @param getToken type:GetToken function for get sts token
   Client(String stsRequestUrl, String endpointDomain, GetToken getToken){
     this.stsRequestUrl = stsRequestUrl;
     this.endpoint = endpointDomain;
@@ -77,6 +108,7 @@ class Client{
     return false;
   }
 
+  /// try to get sts auth token
   Future<Client> getAuth() async {
     print('current: ${this._auth} - ${this._expire}');
     if (this.checkExpire(this._expire)){
@@ -96,6 +128,7 @@ class Client{
     return false;
   }
 
+  /// List Buckets
   HttpRequest list_buckets({prefix:'', marker:'', max_keys:100, params:null}) {
       final listParam = {
         'prefix': prefix,
@@ -116,6 +149,11 @@ class Client{
       return req;
   }
 
+  /// upload file
+  /// @param fileData type:List<int> data of upload file
+  /// @param bucketName type:String name of bucket
+  /// @param fileKey type:String upload filename
+  /// @return type:HttpRequest
   HttpRequest putObject(List<int> fileData, String bucketName, String fileKey) {
     final headers = {
       'content-md5': md5File(fileData),
@@ -128,6 +166,10 @@ class Client{
     return req;
   }
 
+  /// delete file
+  /// @param bucketName type:String name of bucket
+  /// @param fileKey type:String upload filename
+  /// @return type:HttpRequest
   HttpRequest deleteObject(String bucketName, String fileKey) {
     final url = "https://${bucketName}.${this.endpoint}/${fileKey}";
     final req = HttpRequest(url, 'DELETE', {}, {});
