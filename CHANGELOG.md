@@ -28,3 +28,6 @@
 
 ## 0.1.0
 1. Add fileData getter
+
+## 0.1.1
+1. Change Date format

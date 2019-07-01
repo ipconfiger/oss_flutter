@@ -10,7 +10,7 @@ const _EXTRA_TYPES_MAP = {".aac": "audio/aac", ".abw": "application/x-abiword", 
 String httpDateNow(){
   final dt = new DateTime.now();
   initializeDateFormatting();
-  final formatter = new DateFormat('EEE, d MMM yyyy HH:mm:ss', 'en_ISO');
+  final formatter = new DateFormat('EEE, dd MMM yyyy HH:mm:ss', 'en_ISO');
   final dts = formatter.format(dt.toUtc());
   return "${dts} GMT";
 }
