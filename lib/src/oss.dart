@@ -88,6 +88,11 @@ class Client{
   String endpoint;
   GetToken tokenGetter;
 
+  Client.static(String accessKey, String accessSecret, String region) {
+     this._auth = Auth(accessKey, accessSecret, null);
+     this.endpoint = "oss-${region}.aliyuncs.com";
+  }
+
   Auth _auth;
   String _expire;
 
@@ -96,7 +101,6 @@ class Client{
       return false;
     }
     final expireIn = DateTime.parse(expire);
-    print(expire);
     if (new DateTime.now().compareTo(expireIn)>0){
       return true;
     }
@@ -105,7 +109,9 @@ class Client{
 
   /// try to get sts auth token
   Future<Client> getAuth() async {
-    print('current: ${this._auth} - ${this._expire}');
+    if (this._auth != null){
+      return this;
+    }
     if (this.checkExpire(this._expire)){
       return this;
     }else{
@@ -198,7 +204,9 @@ class Auth {
 
   void signRequest(HttpRequest req, String bucket, String key) {
     req.headers['date'] = httpDateNow();
-    req.headers['x-oss-security-token'] = this.secureToken;
+    if (this.secureToken != null){
+      req.headers['x-oss-security-token'] = this.secureToken;
+    }
     final signature = this.make_signature(req, bucket, key);
     req.headers['authorization'] = "OSS ${this.accessKey}:${signature}";
   }
