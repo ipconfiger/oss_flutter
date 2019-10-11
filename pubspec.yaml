@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   crypto: ^2.0.6
-  intl: ^0.15.8
+  intl: ^0.16.0
 
 dev_dependencies:
   test: '>=0.12.30 <1.4.0'
