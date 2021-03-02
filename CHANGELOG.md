@@ -31,3 +31,9 @@
 
 ## 0.1.1
 1. Change Date format
+
+## 0.1.4
+1. Fix some bugs
+
+## 0.1.5
+1. add multipart upload support
