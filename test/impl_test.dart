@@ -123,8 +123,7 @@ void main() {
 
     test('test multipart', () async {
       final http = console.ConsoleClient(autoUncompress: true);
-      final client = Client.static('LTAItrC9kXkItCLK',
-          'bmElAFgKQNQLjKdnuI8BpG9xuQ5fvn', 'ap-northeast-1');
+      final client = Client.static('', '', 'ap-northeast-1');
       //await client.getAuth();
       final req = client.initMultipartUpload('codiario', 'multi.txt');
       final request = new console.Request(req.method, req.url,
